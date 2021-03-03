@@ -15,8 +15,8 @@ const START_PORT = 9052;
 const BATCH_COUNT = IS_PROD ? 6 : 1;
 const TOTAL_COUNT = 96;
 const VIEW_ACTION_COUNT = 10;
-const VIEW_DURATION = 50;
-const PAGE_DEFAULT_TIMEOUT = 600;
+const VIEW_DURATION = 1000;
+const PAGE_DEFAULT_TIMEOUT = 60;
 
 module.exports = {
   IS_PROD,
