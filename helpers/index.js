@@ -6,7 +6,8 @@ const { logger } = require('../utils');
 const watchVideosInSequence = async (page, ipAddr, targetUrlsList, durationInSeconds) => {
 
   const _isPlaying = async (page) => {
-    const title = await page.evaluate('document.querySelector("button.ytp-play-button.ytp-button").getAttribute("title");');
+    const title = await page.evaluate('document.querySelector("button.ytp-play-button.ytp-button").getAttribute("title");')
+      .catch(() => undefined);
     if (!!title)
       return !title.toString().includes('Play');
     return false;
@@ -61,8 +62,6 @@ const watchVideosInSequence = async (page, ipAddr, targetUrlsList, durationInSec
         logger.info('Video not playing. Pressing play...');
         playButton.click();
       }
-
-      logger.error('Could not play Video! Moving on...');
 
     } catch (e) {
       logger.debug(e.message);
