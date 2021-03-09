@@ -7,7 +7,6 @@ services:
       options:
         max-size: '10m'
         max-file: '7'
-    init: true
     restart: unless-stopped
     volumes:
       - ${PWD}/urls.txt:/app/urls.txt
