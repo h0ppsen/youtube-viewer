@@ -43,7 +43,7 @@ const watchVideosInSequence = async (page, ipAddr, targetUrlsList, durationInSec
         .catch(() => undefined);
 
       if (!playButton) {
-        logger.error('Cannot find play button! Skipping for now...');
+        logger.error('Cannot find play button! Skipping...');
         continue;
       }
 
@@ -60,7 +60,7 @@ const watchVideosInSequence = async (page, ipAddr, targetUrlsList, durationInSec
           break;
         }
         logger.info('Video not playing. Pressing play...');
-        playButton.click();
+        await playButton.click();
       }
 
     } catch (e) {
