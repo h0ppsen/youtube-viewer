@@ -7,7 +7,9 @@ const watchVideosInSequence = async (page, ipAddr, targetUrlsList, durationInSec
 
   const _isPlaying = async (page) => {
     const title = await page.evaluate('document.querySelector("button.ytp-play-button.ytp-button").getAttribute("title");');
-    return  !title.toString().includes('Play');
+    if (!!title)
+      return !title.toString().includes('Play');
+    return false;
   };
 
 
